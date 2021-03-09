@@ -25,7 +25,7 @@ data "aws_subnet_ids" "all" {
   vpc_id = "${data.aws_vpc.vpc.id}"
 
   tags = {
-    Tier = "Public"
+    Tier = "Public-${terraform.workspace}"
   }
 }
 
@@ -96,6 +96,6 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "${format("nginx-hackaton-%03d", count.index + 1)}"
+    Name = "${format("nginx-hackaton-%03d", count.index + 1)-${terraform.workspace}}"
   }
 }
