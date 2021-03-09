@@ -25,7 +25,7 @@ data "aws_subnet_ids" "all" {
   vpc_id = "${data.aws_vpc.vpc.id}"
 
   tags = {
-    Tier = "Public-${terraform.workspace}"
+    Tier = "Public"
   }
 }
 
